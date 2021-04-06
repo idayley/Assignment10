@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model IndexViewModel
+
+<!-- Display the bowlers on the screen-->
+
+<h1>@ViewBag.teamName</h1>
+<br />
+<table class="table table-hover">
+    <thead>
+    <th>First Name</th>
+    <th>Middle Init</th>
+    <th>Last Name</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>State</th>
+    <th>ZIP</th>
+    <th>Phone</th>
+    </thead>
+
+    @foreach (var x in Model.bowlers)
+    {
+<tr>
+    <td>@x.BowlerFirstName</td>
+    <td>@x.BowlerMiddleInit</td>
+    <td>@x.BowlerLastName</td>
+    <td>@x.BowlerAddress</td>
+    <td>@x.BowlerCity</td>
+    <td>@x.BowlerState</td>
+    <td>@x.BowlerZip</td>
+    <td>@x.BowlerPhoneNumber</td>
+</tr>
+    }
+</table>
+
+
+<div page-info="@Model.PageNumberingInfo"
+     page-url-teamnameid="@Model.TeamNameId">
+
+</div>

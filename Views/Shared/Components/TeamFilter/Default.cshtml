@@ -1,0 +1,25 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model IEnumerable<Teams>
+
+<a asp-action="Index" asp-controller="Home" asp-route-teamId="" 
+   class=" btn btn-block
+       @("Home" == ViewBag.teamName ? "btn-primary" : "btn-secondary")">
+    Home</a>
+<br />
+
+
+@foreach (var x in Model)
+{
+    <a asp-action="Index" asp-controller="Home" 
+       asp-route-teamId="@x.TeamId"
+       asp-route-teamName="@x.TeamName"
+       class=" btn btn-block
+       @(x.TeamName == ViewBag.teamName ? "btn-primary" : "btn-secondary")">
+    @x.TeamName</a>
+    
+}
